@@ -1,0 +1,31 @@
+
+### Prueba 1 con jpg
+text <- tesseract::ocr("https://www.intentarlo.com/wp-content/uploads/2017/08/frases-de-superacion-personal.jpg")
+cat(text)
+
+### Prueba 2 con pdf
+pngfile <- pdftools::pdf_convert('https://jeroen.github.io/images/ocrscan.pdf', dpi = 600)
+
+text <- tesseract::ocr(pngfile)
+cat(text)
+
+pngfile <- pdftools::pdf_convert('D:/Users/iparedes/Documents/2019/Ponencias/DC-003-2018Anexo.pdf', language = es, pages = 1, dpi = 600)
+
+text <- tesseract::ocr(pngfile)
+cat(text)
+
+pngfile <- pdftools::pdf_convert('D:/Users/iparedes/Documents/2019/Ponencias/DC-003-2018Anexo.pdf', dpi = 600)
+
+text <- tesseract::ocr(pngfile)
+cat(text)
+
+
+?tesseract
+
+
+pngfile1 <- pdftools::pdf_convert('D:/Users/iparedes/Documents/2019/Ponencias/EscritoInicial_CNT-116-2019.pdf', pages = 9, dpi = 600)
+
+text1 <- tesseract::ocr(pngfile1)
+cat(text1)
+
+devtools::install_github("ropensci/magick")
