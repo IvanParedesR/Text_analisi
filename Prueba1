@@ -38,16 +38,16 @@ text <- c("Because I could not stop for Death -",
 
 text
 
-  library(dplyr)
-  text_df <- tibble(line = 1:4, text = text)
+library(dplyr)
+text_df <- tibble(line = 1:4, text = text)
   
-  text_df
+text_df
   
-  library(tidytext)
+library(tidytext)
   
-  text_df %>%
+text_df %>%
     unnest_tokens(word, text)
   
-  library(janeaustenr)
-  library(dplyr)
-  library(stringr)
+library(janeaustenr)
+library(dplyr)
+library(stringr)
