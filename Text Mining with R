@@ -1,4 +1,11 @@
 
+#Text Mining with R
+A Tidy Approach
+Julia Silge and David Robinson
+2019-11-17
+Welcome to Text Mining with R
+
+
 ### Prueba 1 con jpg
 text <- tesseract::ocr("https://www.intentarlo.com/wp-content/uploads/2017/08/frases-de-superacion-personal.jpg")
 cat(text)
