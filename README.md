@@ -1,2 +1,2 @@
-# Text_analisi
+# Text_analisis
 Convertir imagen a texto
