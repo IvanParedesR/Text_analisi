@@ -4,7 +4,32 @@ A Tidy Approach
 Julia Silge and David Robinson
 2019-11-17
 Welcome to Text Mining with R
+https://www.tidytextmining.com/
 
+#Texto mining
+
+install.packages("zipfR") #The zipfR package performs Large-Number-of-Rare-Events (LNRE) 
+#modeling of (linguistic) type frequency distributions (Baayen 2001) and provides 
+#utilities to run various forms of lexical statistics analysis in R.
+?`zipfR-package`
+
+library(zipfR)
+
+data(Dickens.spc)
+data(BrownVer.spc)
+View(Dickens.spc)
+
+N(BrownVer.spc) # 166262
+V(BrownVer.spc) # 10007
+Vm(BrownVer.spc,1) # 3787
+N(Dickens.spc) # 2817208
+V(Dickens.spc) # 41116
+Vm(Dickens.spc,1) # 14220
+
+plot(log(BrownVer.spc$m),log(BrownVer.spc$Vm))
+
+di.vgc <- vgc.interp(Dickens.spc,(1:100)*28170)
+br.vgc <- vgc.interp(BrownVer.spc,(1:100)*1662)
 
 ### Prueba 1 con jpg
 text <- tesseract::ocr("https://www.intentarlo.com/wp-content/uploads/2017/08/frases-de-superacion-personal.jpg")
