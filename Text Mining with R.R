@@ -1,12 +1,42 @@
 
-#Text Mining with R
-A Tidy Approach
-Julia Silge and David Robinson
-2019-11-17
-Welcome to Text Mining with R
-https://www.tidytextmining.com/
+# Text Mining with R
+# A Tidy Approach
+# Julia Silge and David Robinson
+# 2019-11-17
+# Welcome to Text Mining with R
+# https://www.tidytextmining.com/
 
 #Texto mining
+  
+text <- c("Because I could not stop for Death -",
+            "He kindly stopped for me -",
+            "The Carriage held but just Ourselves -",
+            "and Immortality")  
+text
+
+texto2 <- c("Porque te tengo y no",
+"porque te pienso",
+"porque la noche está de ojos abiertos",
+"porque la noche pasa y digo amor",
+"porque has venido a recoger tu imagen",
+"y eres mejor que todas tus imágene",
+"porque eres linda desde el pie hasta el alma",
+"porque eres buena desde el alma a mí")
+
+texto2
+library(dplyr)
+text_df <- tibble(line = 1:4, text = text)
+text_df
+ 
+library(dplyr)
+text_df2 <- tibble(line = 1:8, texto2 = texto2)
+text_df2
+
+library(tidytext)
+text_df2 %>%
+  unnest_tokens(word, texto2)
+
+
 
 install.packages("zipfR") #The zipfR package performs Large-Number-of-Rare-Events (LNRE) 
 #modeling of (linguistic) type frequency distributions (Baayen 2001) and provides 
