@@ -37,6 +37,23 @@ text_df2 %>%
   unnest_tokens(word, texto2)
 
 
+library(janeaustenr)
+library(dplyr)
+library(stringr)
+
+original_books <- austen_books() %>%
+  group_by(book) %>%
+  mutate(linenumber = row_number(),
+         chapter = cumsum(str_detect(text, regex("^chapter [\\divxlc]",
+                                                 ignore_case = TRUE)))) %>%
+  ungroup()
+
+original_books
+austen_books
+
+
+
+
 
 install.packages("zipfR") #The zipfR package performs Large-Number-of-Rare-Events (LNRE) 
 #modeling of (linguistic) type frequency distributions (Baayen 2001) and provides 
