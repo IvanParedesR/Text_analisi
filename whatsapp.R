@@ -6,7 +6,10 @@ library(kableExtra)
 library(RColorBrewer)
 library(knitr)
 # LEEMOS EL CHAT A TRAVÉS DEL TXT EXPORTADO DESDE LA APP
+#DATOS CORTOS
 
-miChat <- rwa_read("C:/Users/iparedes/Documents/Text_analisi/Pleno1.txt")
+miChat <- rwa_read("C:/Users/iparedes/Documents/Pleno1.txt")
+
+
 
 
