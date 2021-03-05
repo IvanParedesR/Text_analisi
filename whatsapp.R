@@ -10,6 +10,6 @@ library(knitr)
 
 miChat <- rwa_read("C:/Users/iparedes/Documents/Pleno1.txt")
 
-
+miChat$hora <- strftime(miChat$time, format="%H:%M:%S")
 
 
