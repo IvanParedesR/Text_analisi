@@ -32,20 +32,14 @@ miChat$hora1 <- ifelse((miChat$hora >= "06:00:00" & miChat$hora <= "07:00:00"), 
 
 
 
-mutate( estacion = factor(miChat$hora1) ) %>% 
-  filter(!is.na(author))
-
-# PALETA DE COLORES
-paleta.estaciones <- brewer.pal(12,"Set1")[c(9,10,11,12,7,5,1,3,4,2,6,8)]
-# VERIFICANDO CUÁNTOS MENSAJES SE ENVIARON DURANTE EL PERIODO DE TIEMPO
-miChat %>% 
-  group_by(hora1) %>% 
+library("ggplot2"); theme_set(theme_minimal())
+library("lubridate")
+miChat %>%
+  mutate(day = date(time)) %>%
   count(day) %>%
-  ggplot(aes(x = day, y = n, fill=hora1)) +
+  ggplot(aes(x = day, y = n)) +
   geom_bar(stat = "identity") +
-  scale_fill_manual(values=paleta.estaciones) +
-  ylab("Número de mensajes") + xlab("Fecha") +
-  ggtitle("Mensajes por día", "Frecuencia por estación del año") +
-  theme_minimal() +
-  theme( legend.title = element_blank(), 
-         legend.position = "bottom")
+  ylab("") + xlab("") +
+  ggtitle("Mensajes por día")
+
+
