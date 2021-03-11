@@ -89,3 +89,20 @@ miChat %>%
   ggtitle("Most often used emojis") +
   theme(axis.text.y = element_blank(),
         axis.ticks.y = element_blank())
+
+
+library("tidytext")
+miChat %>%
+  unnest_tokens(input = text,
+                output = word) %>%
+  count(author, word, sort = TRUE) %>%
+  group_by(author) %>%
+  top_n(n = 6, n) %>%
+  ggplot(aes(x = reorder_within(word, n, author), y = n, fill = author)) +
+  geom_col(show.legend = FALSE) +
+  ylab("") +
+  xlab("") +
+  coord_flip() +
+  facet_wrap(~author, ncol = 2, scales = "free_y") +
+  scale_x_reordered() +
+  ggtitle("Most often used words")
